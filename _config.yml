@@ -1,0 +1,23 @@
+title: AG Shilajit UK
+description: "Pure Altai Shilajit — 100% natural, GMP certified, made in the UK. Official Wild Hog BJJ collaboration."
+url: "https://shop.wildhogbjj.co.uk"
+baseurl: ""
+
+# theme-free: we use our own layouts + styles.css, no Jekyll theme needed
+markdown: kramdown
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
