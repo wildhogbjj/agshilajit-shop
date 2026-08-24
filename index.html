@@ -133,12 +133,12 @@
             <label class="delivery-option">
               <input type="radio" name="delivery-method" value="standard" checked>
               Standard delivery
-              <span class="delivery-price">£5.95</span>
+              <span class="delivery-price" id="standard-price-label">£5.95</span>
             </label>
             <label class="delivery-option">
               <input type="radio" name="delivery-method" value="tracked">
               Tracked delivery
-              <span class="delivery-price">£6.95</span>
+              <span class="delivery-price" id="tracked-price-label">£6.95</span>
             </label>
           </div>
         </div>
@@ -214,6 +214,7 @@
 
   var BASE_PRICE = 30.00;
   var POSTAGE = { standard: 5.95, tracked: 6.95 };
+  var UNITS_PER_PARCEL = 10; // each boxed unit is ~125g; up to 10 fit within Royal Mail's 2kg small-parcel limit for one postage charge
 
   var form = document.getElementById('order-form');
   var totalEl = document.getElementById('order-total-amount');
@@ -225,9 +226,14 @@
     return (qty && qty > 0) ? qty : 1;
   }
 
+  function parcelCount() {
+    return Math.ceil(currentQuantity() / UNITS_PER_PARCEL);
+  }
+
   function currentPostage() {
     var checked = form.querySelector('input[name="delivery-method"]:checked');
-    return POSTAGE[checked ? checked.value : 'standard'];
+    var rate = POSTAGE[checked ? checked.value : 'standard'];
+    return rate * parcelCount();
   }
 
   function formatTotal() {
@@ -236,6 +242,11 @@
 
   function updateTotal() {
     totalEl.textContent = formatTotal();
+    var parcels = parcelCount();
+    var standardLabel = document.getElementById('standard-price-label');
+    var trackedLabel = document.getElementById('tracked-price-label');
+    if (standardLabel) standardLabel.textContent = '£' + (POSTAGE.standard * parcels).toFixed(2);
+    if (trackedLabel) trackedLabel.textContent = '£' + (POSTAGE.tracked * parcels).toFixed(2);
   }
 
   var radios = form.querySelectorAll('input[name="delivery-method"]');
