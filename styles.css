@@ -89,7 +89,7 @@ header.site .bar {
 
 /* Product — flexbox, not grid, for maximum preview/browser compatibility */
 .product {
-  padding: 64px 0 52px;
+  padding-top: 64px; padding-bottom: 52px;
   display: flex; flex-wrap: wrap; gap: 48px; align-items: center;
 }
 .product-copy { flex: 1 1 460px; min-width: 300px; }
