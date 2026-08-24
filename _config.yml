@@ -11,9 +11,20 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+exclude:
+  - shilajit-shared-assets.md
+  - strategy-gym-first.md
+  - strategy-instagram-first.md
+
 collections:
   posts:
     output: true
+
+defaults:
+  - scope:
+      path: "google5d2a4b59eecc9899.html"
+    values:
+      sitemap: false
 
 defaults:
   - scope:
