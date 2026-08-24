@@ -116,3 +116,18 @@ footer.site .foot-brand img { width: 30px; height: 30px; border-radius: 50%; }
 footer.site .foot-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 footer.site .foot-contact { font-size: 13px; color: var(--muted); }
 footer.site .compliance { border-top: 1px solid var(--line); padding-top: 16px; font-size: 11px; color: var(--muted); line-height: 1.6; }
+   @media (max-width: 480px) {
+     .bar {
+       flex-wrap: wrap;
+       row-gap: 10px;
+     }
+     .collab-mark {
+       width: 40px;
+       height: 40px;
+     }
+     .header-actions {
+       flex-wrap: wrap;
+       width: 100%;
+       justify-content: center;
+     }
+   }
