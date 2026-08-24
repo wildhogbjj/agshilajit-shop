@@ -1,11 +1,12 @@
 :root {
-  --bg: #0D0D0D;
-  --surface: #191919;
-  --line: #2E2A22;
+  --bg: #F2F2F2;
+  --surface: #FFFFFF;
+  --line: #E0DED8;
   --accent: #C9A227;
   --accent-2: #8A6D1F;
-  --text: #F3EFE6;
-  --muted: #A79E8C;
+  --text: #1A1A1A;
+  --muted: #6B6558;
+  --on-accent: #16130A;
   --radius: 2px;
   --wrap: 1120px;
 }
@@ -46,7 +47,7 @@ header.site .bar {
   padding: 18px 24px; max-width: var(--wrap); margin: 0 auto;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { width: 40px; height: 40px; border-radius: 50%; }
+.brand .brand-mark { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
 .brand .name { font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 0.08em; }
 .brand .name span { color: var(--accent); }
 
@@ -72,7 +73,7 @@ header.site .bar {
   letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
   border: 1px solid var(--accent);
 }
-.btn-solid { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.btn-solid { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .btn-ghost { background: transparent; color: var(--accent-2); }
 .btn-icon svg { flex-shrink: 0; border-radius: 6px; }
 

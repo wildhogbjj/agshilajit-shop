@@ -12,7 +12,8 @@
 <header class="site">
   <div class="bar">
     <div class="brand">
-      <img src="images/ag-shilajit-logo.svg" alt="AG Shilajit logo">
+      <img src="images/wildhog-logo.jpeg" alt="Wild Hog BJJ logo" class="brand-mark">
+      <img src="images/ag-shilajit-logo.svg" alt="AG Shilajit logo" class="brand-mark">
       <div class="name">AG <span>SHILAJIT</span></div>
     </div>
     <div class="header-actions">
@@ -217,6 +218,12 @@
   var form = document.getElementById('order-form');
   var totalEl = document.getElementById('order-total-amount');
   var confirmationEl = document.getElementById('order-confirmation');
+  var quantityInput = document.getElementById('of-quantity');
+
+  function currentQuantity() {
+    var qty = parseInt(quantityInput.value, 10);
+    return (qty && qty > 0) ? qty : 1;
+  }
 
   function currentPostage() {
     var checked = form.querySelector('input[name="delivery-method"]:checked');
@@ -224,7 +231,7 @@
   }
 
   function formatTotal() {
-    return '£' + (BASE_PRICE + currentPostage()).toFixed(2);
+    return '£' + ((BASE_PRICE * currentQuantity()) + currentPostage()).toFixed(2);
   }
 
   function updateTotal() {
@@ -235,6 +242,8 @@
   for (var i = 0; i < radios.length; i++) {
     radios[i].addEventListener('change', updateTotal);
   }
+  quantityInput.addEventListener('input', updateTotal);
+  quantityInput.addEventListener('change', updateTotal);
   updateTotal();
 
   function showConfirmation() {
