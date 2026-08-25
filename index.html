@@ -122,21 +122,23 @@
           <label for="of-phone">Phone Number</label>
           <input type="tel" id="of-phone" name="phone" required>
         </div>
-        <div class="field">
-          <label for="of-address1">Address Line 1</label>
-          <input type="text" id="of-address1" name="address1" required>
-        </div>
-        <div class="field">
-          <label for="of-address2">Address Line 2 (optional)</label>
-          <input type="text" id="of-address2" name="address2">
-        </div>
-        <div class="field">
-          <label for="of-city">Town / City</label>
-          <input type="text" id="of-city" name="city" required>
-        </div>
-        <div class="field">
-          <label for="of-postcode">Postcode</label>
-          <input type="text" id="of-postcode" name="postcode" required>
+        <div id="address-field-group">
+          <div class="field">
+            <label for="of-address1">Address Line 1</label>
+            <input type="text" id="of-address1" name="address1" required>
+          </div>
+          <div class="field">
+            <label for="of-address2">Address Line 2 (optional)</label>
+            <input type="text" id="of-address2" name="address2">
+          </div>
+          <div class="field">
+            <label for="of-city">Town / City</label>
+            <input type="text" id="of-city" name="city" required>
+          </div>
+          <div class="field">
+            <label for="of-postcode">Postcode</label>
+            <input type="text" id="of-postcode" name="postcode" required>
+          </div>
         </div>
         <div class="field">
           <label for="of-quantity">Quantity</label>
@@ -159,6 +161,11 @@
               <input type="radio" name="delivery-method" value="tracked">
               Tracked delivery
               <span class="delivery-price" id="tracked-price-label">£6.95</span>
+            </label>
+            <label class="delivery-option">
+              <input type="radio" name="delivery-method" value="collection">
+              Collection (Wild Hog BJJ gym)
+              <span class="delivery-price" id="collection-price-label">£0.00</span>
             </label>
           </div>
         </div>
@@ -233,7 +240,7 @@
   var FORMSPREE_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxxxx'
 
   var BASE_PRICE = 30.00;
-  var POSTAGE = { standard: 5.95, tracked: 6.95 };
+  var POSTAGE = { standard: 5.95, tracked: 6.95, collection: 0 };
   var UNITS_PER_PARCEL = 10; // each boxed unit is ~125g; up to 10 fit within Royal Mail's 2kg small-parcel limit for one postage charge
 
   var form = document.getElementById('order-form');
@@ -275,6 +282,28 @@
   }
   quantityInput.addEventListener('input', updateTotal);
   quantityInput.addEventListener('change', updateTotal);
+
+  var addressFields = [
+    document.getElementById('of-address1'),
+    document.getElementById('of-city'),
+    document.getElementById('of-postcode')
+  ];
+  var addressFieldGroup = document.getElementById('address-field-group');
+
+  function toggleAddressRequirement() {
+    var checked = form.querySelector('input[name="delivery-method"]:checked');
+    var isCollection = checked && checked.value === 'collection';
+    addressFields.forEach(function (el) {
+      if (!el) return;
+      el.required = !isCollection;
+    });
+    if (addressFieldGroup) addressFieldGroup.style.display = isCollection ? 'none' : '';
+  }
+
+  radios.forEach ? radios.forEach(function (r) { r.addEventListener('change', toggleAddressRequirement); })
+    : (function () { for (var j = 0; j < radios.length; j++) { radios[j].addEventListener('change', toggleAddressRequirement); } })();
+  toggleAddressRequirement();
+
   updateTotal();
 
   function showConfirmation() {
@@ -298,7 +327,9 @@
     var quantity = data.get('quantity');
     var instructions = data.get('instructions') || '—';
     var deliveryValue = data.get('delivery-method');
-    var deliveryLabel = deliveryValue === 'tracked' ? 'Tracked delivery (£6.95)' : 'Standard delivery (£5.95)';
+    var deliveryLabel = deliveryValue === 'tracked' ? 'Tracked delivery (£6.95)'
+      : deliveryValue === 'collection' ? 'Collection — Wild Hog BJJ gym (Free)'
+      : 'Standard delivery (£5.95)';
     var total = formatTotal();
 
     if (FORM_MODE === 'formspree' && FORMSPREE_ENDPOINT) {
