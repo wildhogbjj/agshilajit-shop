@@ -236,8 +236,8 @@
 
 <script>
 (function () {
-  var FORM_MODE = 'mailto'; // 'mailto' | 'formspree'
-  var FORMSPREE_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxxxx'
+  var FORM_MODE = 'formspree'; // 'mailto' | 'formspree'
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaewrpye';
 
   var BASE_PRICE = 30.00;
   var POSTAGE = { standard: 5.95, tracked: 6.95, collection: 0 };
@@ -333,6 +333,10 @@
     var total = formatTotal();
 
     if (FORM_MODE === 'formspree' && FORMSPREE_ENDPOINT) {
+      data.set('full_address', deliveryValue === 'collection' ? 'N/A — collecting in person' : fullAddress);
+      data.set('delivery_method_label', deliveryLabel);
+      data.set('order_total', total);
+      data.set('_subject', 'New Order — ' + name);
       fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
