@@ -111,12 +111,32 @@
 
       <form id="order-form" class="order-form">
         <div class="field">
-          <label for="of-name">Name</label>
+          <label for="of-name">Full Name</label>
           <input type="text" id="of-name" name="name" required>
         </div>
         <div class="field">
-          <label for="of-address">Delivery Address</label>
-          <textarea id="of-address" name="address" required></textarea>
+          <label for="of-email">Email</label>
+          <input type="email" id="of-email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="of-phone">Phone Number</label>
+          <input type="tel" id="of-phone" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="of-address1">Address Line 1</label>
+          <input type="text" id="of-address1" name="address1" required>
+        </div>
+        <div class="field">
+          <label for="of-address2">Address Line 2 (optional)</label>
+          <input type="text" id="of-address2" name="address2">
+        </div>
+        <div class="field">
+          <label for="of-city">Town / City</label>
+          <input type="text" id="of-city" name="city" required>
+        </div>
+        <div class="field">
+          <label for="of-postcode">Postcode</label>
+          <input type="text" id="of-postcode" name="postcode" required>
         </div>
         <div class="field">
           <label for="of-quantity">Quantity</label>
@@ -268,7 +288,13 @@
 
     var data = new FormData(form);
     var name = data.get('name');
-    var address = data.get('address');
+    var email = data.get('email');
+    var phone = data.get('phone');
+    var address1 = data.get('address1');
+    var address2 = data.get('address2') || '';
+    var city = data.get('city');
+    var postcode = data.get('postcode');
+    var fullAddress = address1 + (address2 ? ', ' + address2 : '') + ', ' + city + ', ' + postcode;
     var quantity = data.get('quantity');
     var instructions = data.get('instructions') || '—';
     var deliveryValue = data.get('delivery-method');
@@ -296,7 +322,9 @@
     var body = encodeURIComponent(
       'New order from the website:\n\n' +
       'Name: ' + name + '\n' +
-      'Delivery Address: ' + address + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Delivery Address: ' + fullAddress + '\n' +
       'Quantity: ' + quantity + '\n' +
       'Delivery Instructions: ' + instructions + '\n' +
       'Delivery Method: ' + deliveryLabel + '\n' +
