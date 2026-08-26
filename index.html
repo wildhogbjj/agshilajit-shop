@@ -312,6 +312,26 @@
     confirmationEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  var COUNTER_KEY = 'wildhogbjj-agshilajit-orders';
+  var COUNTER_URL = 'https://countapi.mileshilliard.com/api/v1/hit/' + COUNTER_KEY;
+
+  function getOrderNumber() {
+    return fetch(COUNTER_URL)
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        var n = json && json.value;
+        if (!n) throw new Error('no counter value');
+        return 'WHAGS-' + String(n).padStart(5, '0');
+      })
+      .catch(function () {
+        // Fallback if the counter service is unreachable: timestamp-based reference
+        // so checkout never breaks, though it won't be strictly sequential.
+        var d = new Date();
+        var pad = function (x) { return String(x).padStart(2, '0'); };
+        return 'WHAGS-' + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + pad(d.getHours()) + pad(d.getMinutes());
+      });
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -331,42 +351,62 @@
       : deliveryValue === 'collection' ? 'Collection — Wild Hog BJJ gym (Free)'
       : 'Standard delivery (£5.95)';
     var total = formatTotal();
+    var addressForMessage = deliveryValue === 'collection' ? 'Collecting in person at Wild Hog BJJ' : fullAddress;
 
-    if (FORM_MODE === 'formspree' && FORMSPREE_ENDPOINT) {
-      data.set('full_address', deliveryValue === 'collection' ? 'N/A — collecting in person' : fullAddress);
-      data.set('delivery_method_label', deliveryLabel);
-      data.set('order_total', total);
-      data.set('_subject', 'New Order — ' + name);
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
-      }).then(function (res) {
-        if (res.ok) {
-          showConfirmation();
-        } else {
+    getOrderNumber().then(function (orderNumber) {
+      if (FORM_MODE === 'formspree' && FORMSPREE_ENDPOINT) {
+        data.set('order_number', orderNumber);
+        data.set('full_address', addressForMessage);
+        data.set('delivery_method_label', deliveryLabel);
+        data.set('order_total', total);
+        data.set('_subject', 'Your AG Shilajit Order — ' + orderNumber);
+        data.set('_cc', email);
+        data.set('message',
+          'Thanks for your order!\n\n' +
+          'Order reference: ' + orderNumber + '\n\n' +
+          'Here\'s what you ordered:\n' +
+          '- Qty: ' + quantity + ' x Pure Altai Shilajit (30g)\n' +
+          '- Delivery: ' + deliveryLabel + '\n' +
+          'Total: £' + total.replace('£', '') + '\n\n' +
+          'Delivery details:\n' +
+          addressForMessage + '\n' +
+          'Delivery instructions: ' + instructions + '\n\n' +
+          'We\'ll follow up with a payment link (bank transfer, card, or PayPal) within a few hours. Once payment\'s received, your order ships within 24 hours.\n\n' +
+          'Questions? WhatsApp us: 07956 322 437\n\n' +
+          '— Wild Hog BJJ x AG Shilajit'
+        );
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        }).then(function (res) {
+          if (res.ok) {
+            showConfirmation();
+          } else {
+            alert('Something went wrong sending your order — please WhatsApp or email it instead.');
+          }
+        }).catch(function () {
           alert('Something went wrong sending your order — please WhatsApp or email it instead.');
-        }
-      }).catch(function () {
-        alert('Something went wrong sending your order — please WhatsApp or email it instead.');
-      });
-      return;
-    }
+        });
+        return;
+      }
 
-    var subject = encodeURIComponent('New Order — ' + name);
-    var body = encodeURIComponent(
-      'New order from the website:\n\n' +
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Phone: ' + phone + '\n' +
-      'Delivery Address: ' + fullAddress + '\n' +
-      'Quantity: ' + quantity + '\n' +
-      'Delivery Instructions: ' + instructions + '\n' +
-      'Delivery Method: ' + deliveryLabel + '\n' +
-      'Total: ' + total + '\n'
-    );
-    window.location.href = 'mailto:orders@wildhogbjj.co.uk?subject=' + subject + '&body=' + body;
-    showConfirmation();
+      var subject = encodeURIComponent('Your AG Shilajit Order — ' + orderNumber);
+      var body = encodeURIComponent(
+        'Thanks for your order!\n\n' +
+        'Order reference: ' + orderNumber + '\n\n' +
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Delivery Address: ' + addressForMessage + '\n' +
+        'Quantity: ' + quantity + '\n' +
+        'Delivery Instructions: ' + instructions + '\n' +
+        'Delivery Method: ' + deliveryLabel + '\n' +
+        'Total: ' + total + '\n'
+      );
+      window.location.href = 'mailto:orders@wildhogbjj.co.uk?subject=' + subject + '&body=' + body;
+      showConfirmation();
+    });
   });
 })();
 </script>
