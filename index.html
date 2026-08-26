@@ -365,14 +365,13 @@
           'Thanks for your order!\n\n' +
           'Order reference: ' + orderNumber + '\n\n' +
           'Here\'s what you ordered:\n' +
-          '- Qty: ' + quantity + ' x Pure Altai Shilajit (30g)\n' +
-          '- Delivery: ' + deliveryLabel + '\n' +
+          'Qty: ' + quantity + ' x Pure Altai Shilajit (30g)\n' +
+          'Delivery: ' + deliveryLabel + '\n' +
           'Total: £' + total.replace('£', '') + '\n\n' +
           'Delivery details:\n' +
           addressForMessage + '\n' +
           'Delivery instructions: ' + instructions + '\n\n' +
-          'We\'ll confirm your order by email shortly. Your confirmation email will include a secure payment link.\n\n' +
-          'Once payment has been received, your order will be dispatched within 24 hours.\n\n' +
+          'A secure payment link will follow shortly by email. Once payment is received, your order will be dispatched within 24 hours.\n\n' +
           'Questions? WhatsApp us: 07956 322 437\n\n' +
           '— Wild Hog BJJ x AG Shilajit'
         );
@@ -396,14 +395,16 @@
       var body = encodeURIComponent(
         'Thanks for your order!\n\n' +
         'Order reference: ' + orderNumber + '\n\n' +
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Delivery Address: ' + addressForMessage + '\n' +
-        'Quantity: ' + quantity + '\n' +
-        'Delivery Instructions: ' + instructions + '\n' +
-        'Delivery Method: ' + deliveryLabel + '\n' +
-        'Total: ' + total + '\n'
+        'What you ordered:\n' +
+        'Qty: ' + quantity + ' x Pure Altai Shilajit (30g)\n' +
+        'Delivery: ' + deliveryLabel + '\n' +
+        'Total: £' + total.replace('£', '') + '\n\n' +
+        'Delivery details:\n' +
+        addressForMessage + '\n' +
+        'Delivery instructions: ' + instructions + '\n\n' +
+        'A secure payment link will follow shortly by email. Once payment is received, your order will be dispatched within 24 hours.\n\n' +
+        'Questions? WhatsApp us: 07956 322 437\n\n' +
+        '— Wild Hog BJJ x AG Shilajit'
       );
       window.location.href = 'mailto:orders@wildhogbjj.co.uk?subject=' + subject + '&body=' + body;
       showConfirmation();
