@@ -80,7 +80,7 @@ header.site .bar {
 .trust-line { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
 
 /* Hero */
-.hero img { width: 100%; max-height: 70vh; object-fit: cover; display: block; }
+.hero img { width: 100%; height: auto; display: block; }
 .hero-note {
   text-align: center; padding: 10px 20px; font-size: 12px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
