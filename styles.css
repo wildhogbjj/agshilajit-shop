@@ -47,7 +47,7 @@ header.site .bar {
   padding: 18px 24px; max-width: var(--wrap); margin: 0 auto;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand .brand-mark { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.brand .brand-mark { width: clamp(56px, 9vw, 120px); height: clamp(56px, 9vw, 120px); border-radius: 50%; object-fit: cover; }
 .brand .name { font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 0.08em; }
 .brand .name span { color: var(--accent); }
 
@@ -210,7 +210,7 @@ header.site .bar {
 /* Story */
 .story { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .story .wrap { padding: 0; display: flex; align-items: stretch; min-height: 320px; }
-.story .logo-panel { flex: 0 0 300px; display: flex; align-items: center; justify-content: center; padding: 10px; }
+.story .logo-panel { flex: 0 0 clamp(110px, 24vw, 300px); display: flex; align-items: center; justify-content: center; padding: 10px; }
 .story .logo-panel img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .story .text-panel {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -267,10 +267,6 @@ footer.site .foot-legal span { margin: 0 6px; }
      .story .wrap {
        min-height: 220px;
      }
-     .story .logo-panel {
-       flex: 0 0 84px;
-       padding: 10px;
-     }
      .story .text-panel {
        padding: 20px 14px;
      }
@@ -290,10 +286,6 @@ footer.site .foot-legal span { margin: 0 6px; }
      .collab-mark {
        width: 40px;
        height: 40px;
-     }
-     .brand .brand-mark {
-       width: 30px;
-       height: 30px;
      }
      .header-actions, footer.site .foot-actions {
        flex-wrap: nowrap;
@@ -318,10 +310,6 @@ footer.site .foot-legal span { margin: 0 6px; }
      }
      .story .wrap {
        min-height: 170px;
-     }
-     .story .logo-panel {
-       flex: 0 0 56px;
-       padding: 6px;
      }
      .story .text-panel {
        padding: 16px 10px;
