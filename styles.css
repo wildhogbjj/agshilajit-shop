@@ -80,7 +80,7 @@ header.site .bar {
 .trust-line { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
 
 /* Hero */
-.hero img { width: 100%; height: auto; display: block; }
+.hero img { width: 100%; max-height: 70vh; object-fit: cover; display: block; }
 .hero-note {
   text-align: center; padding: 10px 20px; font-size: 12px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
@@ -94,6 +94,7 @@ header.site .bar {
 }
 .product-copy { flex: 1 1 460px; min-width: 300px; }
 .product-visual { flex: 1 1 360px; min-width: 280px; background: var(--surface); border: 1px solid var(--line); padding: 16px; }
+.product-visual img { max-height: 460px; width: 100%; object-fit: contain; margin: 0 auto; }
 .product .eyebrow { font-family: 'Oswald', sans-serif; color: var(--accent); font-size: 13px; letter-spacing: 0.16em; margin-bottom: 10px; }
 .eyebrow.center { text-align: center; }
 .product h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.05; margin-bottom: 16px; }
@@ -105,6 +106,43 @@ header.site .bar {
 .facts { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
 .facts li { font-size: 14px; display: flex; align-items: center; gap: 9px; flex: 1 1 45%; }
 .facts li::before { content: ''; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+/* Coming soon poster teaser */
+.coming-soon-teaser { padding: 8px 0 56px; }
+.coming-soon-teaser .eyebrow.center { margin-top: 0; }
+.coming-soon-teaser h2 { text-align: center; font-size: clamp(22px, 3.6vw, 30px); margin: 10px 0 28px; }
+
+.poster-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; }
+.poster-card {
+  position: relative; display: block; overflow: hidden; width: 268px;
+  background: var(--surface); border: 1px solid var(--line); text-decoration: none;
+}
+.poster-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.poster-card .poster-label {
+  padding: 12px 8px; text-align: center; border-top: 1px solid var(--line);
+  font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.03em;
+  font-size: 12px; color: var(--text);
+}
+
+/* Diagonal hazard-tape "Coming Soon" band across the poster thumbnail */
+.poster-tape {
+  position: absolute; left: -12%; right: -12%; top: 40%;
+  transform: rotate(-9deg);
+  background: var(--accent);
+  padding: 7px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.poster-tape::before, .poster-tape::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 5px;
+  background-image: repeating-linear-gradient(45deg, var(--on-accent) 0 8px, transparent 8px 16px);
+}
+.poster-tape::before { top: -5px; }
+.poster-tape::after { bottom: -5px; }
+.poster-tape span {
+  font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--on-accent); font-weight: 600;
+}
 
 /* Benefits */
 .benefits { padding: 56px 0; border-top: 1px solid var(--line); }
@@ -193,6 +231,32 @@ footer.site .foot-founder { display: flex; align-items: center; gap: 10px; margi
 footer.site .foot-founder img { width: 24px; height: 24px; border-radius: 50%; }
 footer.site .foot-founder span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
 footer.site .compliance { border-top: 1px solid var(--line); padding-top: 16px; font-size: 11px; color: var(--muted); line-height: 1.6; }
+footer.site .foot-legal { margin-top: 12px; font-size: 11px; color: var(--muted); }
+footer.site .foot-legal a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+footer.site .foot-legal a:hover { color: var(--accent); }
+footer.site .foot-legal span { margin: 0 6px; }
+/* Coming soon pages */
+.back-link { display: inline-block; margin-bottom: 20px; font-size: 13px; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
+.back-link:hover { color: var(--accent); }
+
+.coming-soon-badge {
+  display: inline-block; background: var(--accent); color: var(--on-accent);
+  font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 6px 14px; border-radius: var(--radius); margin-bottom: 16px;
+}
+
+.callout-box { background: var(--bg); border: 1px solid var(--accent); padding: 20px; margin: 24px 0; max-width: 46ch; }
+.callout-box strong { color: var(--accent); font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; display: block; margin-bottom: 8px; }
+.callout-box p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.notify-form { display: flex; gap: 10px; flex-wrap: wrap; max-width: 480px; margin-top: 8px; }
+.notify-form input[type="email"] {
+  flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); color: var(--text);
+  padding: 12px 14px; font-family: inherit; font-size: 15px; border-radius: var(--radius);
+}
+.notify-form input[type="email"]:focus { outline: none; border-color: var(--accent); }
+.notify-confirmation { color: var(--accent); font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 13px; margin-top: 12px; }
+
    @media (max-width: 480px) {
      .bar {
        flex-wrap: wrap;
@@ -202,13 +266,27 @@ footer.site .compliance { border-top: 1px solid var(--line); padding-top: 16px; 
        width: 40px;
        height: 40px;
      }
-     .header-actions {
-       flex-wrap: wrap;
-       width: 100%;
-       justify-content: center;
+     .brand .brand-mark {
+       width: 30px;
+       height: 30px;
+     }
+     .header-actions, footer.site .foot-actions {
+       flex-wrap: nowrap;
+       width: auto;
+       gap: 8px;
+     }
+     .header-actions .btn-icon, footer.site .foot-actions .btn-icon {
+       padding: 9px;
+     }
+     .header-actions .btn-text, footer.site .foot-actions .btn-text {
+       display: none;
      }
      .benefit-grid, .stat-grid {
        grid-template-columns: repeat(2, 1fr);
+     }
+     .poster-card {
+       width: 100%;
+       max-width: 268px;
      }
      .product {
        gap: 32px;
