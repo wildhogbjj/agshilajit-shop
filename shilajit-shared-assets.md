@@ -23,6 +23,12 @@ Leads with the 81% fulvic acid stat as the core differentiator vs. UK competitor
 ## Tagline
 "Pure discipline. Pure ingredients." — jiu jitsu + shilajit wordplay, used on social/partners page, not the shop homepage hero.
 
+## New product line assets (Ashwagandha & Lion's Mane — Coming Soon)
+- Pages: `shop.wildhogbjj.co.uk/ashwagandha-shilajit`, `/lions-mane-shilajit` — notify-me capture only, no order form yet
+- Source posters (Drive): MARKETING > WEBSITE > A G SHILAJIT > GRAPHICS FOR SHILAJIT SHOP
+- Local repo copies: `images/ashwagandha-shilajit-poster.jpg`, `images/lions-mane-shilajit-poster.jpg` (full marketing posters — usable as-is for Instagram posts)
+- Product-only crops (no text/background, used in the on-page product box): `images/ashwagandha-shilajit-cutout.jpg`, `images/lions-mane-shilajit-cutout.jpg`
+
 ## Contact / links
 - WhatsApp: 07956322437
 - Shop: agshilajit-shop (GitHub Pages, wildhogbjj/agshilajit-shop repo)
