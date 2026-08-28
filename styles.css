@@ -48,8 +48,11 @@ header.site .bar {
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand .brand-mark { width: clamp(56px, 9vw, 120px); height: clamp(56px, 9vw, 120px); border-radius: 50%; object-fit: cover; }
+.brand-text { display: flex; flex-direction: column; gap: 4px; }
 .brand .name { font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 0.08em; }
 .brand .name span { color: var(--accent); }
+.brand .tagline { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.brand .tagline span { color: var(--accent); }
 
 .collab-lockup { gap: 14px; }
 .collab-lockup .collab-mark {
