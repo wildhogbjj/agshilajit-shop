@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title | escape }} &mdash; {{ site.title | escape }}</title>
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="bar">
+    <div class="brand">
+      <img src="/images/wildhog-logo.jpeg" alt="Wild Hog BJJ logo" class="brand-mark">
+      <img src="/images/ag-shilajit-logo.svg" alt="AG Shilajit logo" class="brand-mark">
+      <div class="brand-text">
+        <div class="name">AG <span>SHILAJIT</span></div>
+        <div class="tagline">Discipline. Consistency. Recovery. <span>Progress.</span></div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="btn btn-ghost btn-icon" href="https://wa.me/447956322437" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M23.5 8.6a10.1 10.1 0 00-16 12.1L6.2 25l4.5-1.3a10.1 10.1 0 0012.8-15.1zM16 23.4a7.8 7.8 0 01-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A7.8 7.8 0 1116 23.4z"/><path fill="#fff" d="M20.1 18.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1s-.6.9-.8 1c-.1.2-.3.2-.5.1a6.4 6.4 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.2-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.4a.5.5 0 000-.5c-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.1 2.9c.1.2 2.1 3.2 5.1 4.4a5.9 5.9 0 001.9.6c.5.1 1 .1 1.3 0 .4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+        <span class="btn-text">WhatsApp Me</span>
+      </a>
+      <a class="btn btn-solid btn-icon" href="https://instagram.com/wildhogbjj" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><defs><linearGradient id="igGradHeader" x1="0" y1="32" x2="32" y2="0"><stop offset="0%" stop-color="#FEDA75"/><stop offset="30%" stop-color="#FA7E1E"/><stop offset="60%" stop-color="#D62976"/><stop offset="85%" stop-color="#962FBF"/><stop offset="100%" stop-color="#4F5BD5"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#igGradHeader)"/><rect x="9" y="9" width="14" height="14" rx="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="3.6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="21.6" cy="10.4" r="1.1" fill="#fff"/></svg>
+        <span class="btn-text">Message on Instagram</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="legal-page wrap">
+    <a href="/" class="back-link">&larr; Back to Shop</a>
+    {{ content }}
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="/images/ag-shilajit-logo.svg" alt="AG Shilajit logo">
+        <span>AG SHILAJIT</span>
+      </div>
+      <div class="foot-actions">
+        <a class="btn btn-ghost btn-icon" href="https://wa.me/447956322437" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M23.5 8.6a10.1 10.1 0 00-16 12.1L6.2 25l4.5-1.3a10.1 10.1 0 0012.8-15.1zM16 23.4a7.8 7.8 0 01-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A7.8 7.8 0 1116 23.4z"/><path fill="#fff" d="M20.1 18.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1s-.6.9-.8 1c-.1.2-.3.2-.5.1a6.4 6.4 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.2-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.4a.5.5 0 000-.5c-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.1 2.9c.1.2 2.1 3.2 5.1 4.4a5.9 5.9 0 001.9.6c.5.1 1 .1 1.3 0 .4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+          <span class="btn-text">WhatsApp Me</span>
+        </a>
+        <a class="btn btn-ghost btn-icon" href="https://instagram.com/wildhogbjj" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><defs><linearGradient id="igGradFooter" x1="0" y1="32" x2="32" y2="0"><stop offset="0%" stop-color="#FEDA75"/><stop offset="30%" stop-color="#FA7E1E"/><stop offset="60%" stop-color="#D62976"/><stop offset="85%" stop-color="#962FBF"/><stop offset="100%" stop-color="#4F5BD5"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#igGradFooter)"/><rect x="9" y="9" width="14" height="14" rx="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="3.6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="21.6" cy="10.4" r="1.1" fill="#fff"/></svg>
+          <span class="btn-text">Message on Instagram</span>
+        </a>
+      </div>
+      <div class="foot-contact">orders@wildhogbjj.co.uk</div>
+    </div>
+    <div class="foot-founder">
+      <img src="/images/wildhog-logo.jpeg" alt="Wild Hog BJJ logo">
+      <span>Founded by Wild Hog BJJ</span>
+    </div>
+    <div class="compliance">
+      Food supplement. Use as part of a balanced diet and healthy lifestyle. Not intended to diagnose, treat, cure or prevent any disease.
+    </div>
+    <div class="foot-legal">
+      <a href="/privacy/">Privacy Policy</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/terms/">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
