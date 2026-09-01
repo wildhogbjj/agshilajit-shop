@@ -12,6 +12,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - README.md
   - shilajit-shared-assets.md
   - strategy-gym-first.md
   - strategy-instagram-first.md

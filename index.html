@@ -7,6 +7,34 @@
 <meta name="facebook-domain-verification" content="1cbm7ub5zv8pswfe5gmmmh5wb0e90r" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<!-- Meta Pixel Code -->
+<!-- SETUP: replace YOUR_PIXEL_ID below (appears twice: fbq init + noscript img) with your real Meta Pixel ID. -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+  // ViewContent — fires on load of this product page.
+  fbq('track', 'ViewContent', {
+    content_name: 'Pure Altai Shilajit 30g',
+    content_ids: ['AGS-ALTAI-30G'],
+    content_type: 'product',
+    value: 30.00,
+    currency: 'GBP'
+  });
+</script>
 </head>
 <body class="home">
 
@@ -127,12 +155,85 @@
     </div>
   </section>
 
+
+  <!-- Product Information - ingredients, dosage, statutory warnings, batch and
+       manufacturer details. Every [TO CONFIRM] marker is a value the site owner
+       must supply from the physical product label before this goes to customers. -->
+  <section class="product-info" id="product-information">
+    <div class="wrap">
+      <div class="eyebrow center">Product Information</div>
+      <h2 class="info-heading">Ingredients, Dosage &amp; Safety</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Ingredients</h3>
+          <p>100% purified Shilajit resin (<em>Asphaltum punjabinum</em>). <span class="info-tbc">[TO CONFIRM]</span> Exact ingredient declaration as printed on the label, including any remaining moisture content and confirmation that no fillers, additives or excipients are present.</p>
+        </div>
+        <div class="info-card">
+          <h3>Directions for Use</h3>
+          <p><span class="info-tbc">[TO CONFIRM]</span> Recommended daily dose as printed on the label (e.g. a pea-sized portion, approx. 300&ndash;500mg, once daily, dissolved in warm water or milk). <strong>Do not exceed the recommended daily dose.</strong></p>
+        </div>
+        <div class="info-card">
+          <h3>Net Quantity</h3>
+          <p>30g resin.<br><span class="info-tbc">[TO CONFIRM]</span> Approximate number of servings per jar.</p>
+        </div>
+        <div class="info-card">
+          <h3>Storage</h3>
+          <p><span class="info-tbc">[TO CONFIRM]</span> Recommended storage conditions as printed on the label (e.g. store in a cool, dry place below 25&deg;C, out of direct sunlight; replace the lid tightly after use).</p>
+        </div>
+      </div>
+
+      <div class="info-warnings">
+        <h3>Warnings</h3>
+        <ul>
+          <li><strong>Do not exceed the recommended daily dose.</strong></li>
+          <li><strong>Keep out of the sight and reach of children.</strong></li>
+          <li>A food supplement should not be used as a substitute for a varied and balanced diet and a healthy lifestyle.</li>
+          <li>Not suitable for children. If you are pregnant, breastfeeding, taking any medication or under medical supervision, consult a doctor or pharmacist before use.</li>
+          <li>Discontinue use and seek advice if you experience any adverse reaction.</li>
+          <li><span class="info-tbc">[TO CONFIRM]</span> Any allergen or additional warning text printed on the product label.</li>
+        </ul>
+      </div>
+
+      <div class="info-columns">
+        <div class="info-batch">
+          <h3>Batch Details</h3>
+          <dl>
+            <dt>Batch number</dt>
+            <dd><span class="info-tbc">[TO CONFIRM &mdash; update per batch]</span></dd>
+            <dt>Best before / expiry date</dt>
+            <dd><span class="info-tbc">[TO CONFIRM &mdash; update per batch]</span></dd>
+          </dl>
+          <p class="info-note">Update these two values for each new batch dispatched. They must match the batch printed on the jar the customer receives.</p>
+        </div>
+
+        <div class="info-address">
+          <h3>Manufacturer &amp; Distributor</h3>
+          <p class="info-block-label">Manufactured by</p>
+          <p>AG Shilajit<br><span class="info-tbc">[TO CONFIRM]</span> Full manufacturer or importer name and registered address.</p>
+          <p class="info-block-label">Distributed in the UK by</p>
+          <p>
+            WILD HOG BJJ LTD<br>
+            5 Crossoaks Farm, Crossoaks Lane<br>
+            Ridge, WD6 5PH<br>
+            United Kingdom<br>
+            Company number 16523062
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="order" id="order">
     <div class="wrap">
       <h2>Place Your Order</h2>
       <p class="lead">£30.00 per 30g box. Enter your details below and we'll confirm by email with a payment link.</p>
 
-      <form id="order-form" class="order-form">
+      <!-- method/action are the no-JS fallback: if the JS below fails or is blocked, the
+     browser performs a native POST straight to Formspree instead of GET-ing this
+     page with the order data exposed in the query string. The JS path (preventDefault
+     + fetch) remains primary. Keep this endpoint in sync with FORMSPREE_ENDPOINT. -->
+      <form id="order-form" class="order-form" method="POST" action="https://formspree.io/f/xljrqpjj">
         <div class="field">
           <label for="of-name">Full Name</label>
           <input type="text" id="of-name" name="name" required>
@@ -340,25 +441,51 @@
     confirmationEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  var COUNTER_KEY = 'wildhogbjj-agshilajit-orders';
-  var COUNTER_URL = 'https://countapi.mileshilliard.com/api/v1/hit/' + COUNTER_KEY;
-
-  function getOrderNumber() {
-    return fetch(COUNTER_URL)
-      .then(function (res) { return res.json(); })
-      .then(function (json) {
-        var n = json && json.value;
-        if (!n) throw new Error('no counter value');
-        return 'WHAGS-' + String(n).padStart(5, '0');
-      })
-      .catch(function () {
-        // Fallback if the counter service is unreachable: timestamp-based reference
-        // so checkout never breaks, though it won't be strictly sequential.
-        var d = new Date();
-        var pad = function (x) { return String(x).padStart(2, '0'); };
-        return 'WHAGS-' + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + pad(d.getHours()) + pad(d.getMinutes());
-      });
+  // Order reference is generated client-side at submit time. Previously this hit a
+  // public third-party counter (countapi) for a sequential number - that was a single
+  // point of failure, rate-limited, and the counter was publicly readable/incrementable
+  // by anyone. Uniqueness now comes from timestamp + crypto-random suffix instead.
+  function randomSuffix() {
+    var bytes;
+    if (window.crypto && window.crypto.getRandomValues) {
+      bytes = new Uint8Array(3);
+      window.crypto.getRandomValues(bytes);
+    } else {
+      bytes = [Math.random() * 256, Math.random() * 256, Math.random() * 256];
+    }
+    var out = '';
+    for (var i = 0; i < 3; i++) {
+      out += ('0' + (bytes[i] & 255).toString(16).toUpperCase()).slice(-2);
+    }
+    return out;
   }
+
+  function generateOrderNumber() {
+    var d = new Date();
+    var pad = function (x) { return String(x).padStart(2, '0'); };
+    return 'WHAGS-' + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) +
+      '-' + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds()) +
+      '-' + randomSuffix();
+  }
+
+  // InitiateCheckout - fires once, on the first real interaction with the order form.
+  var checkoutStarted = false;
+  function markCheckoutStarted() {
+    if (checkoutStarted) return;
+    checkoutStarted = true;
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Pure Altai Shilajit 30g',
+        content_ids: ['AGS-ALTAI-30G'],
+        content_type: 'product',
+        num_items: currentQuantity(),
+        value: parseFloat(formatTotal().replace('£', '')),
+        currency: 'GBP'
+      });
+    }
+  }
+  form.addEventListener('focusin', markCheckoutStarted);
+  form.addEventListener('input', markCheckoutStarted);
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -381,7 +508,7 @@
     var total = formatTotal();
     var addressForMessage = deliveryValue === 'collection' ? 'Collecting in person at Wild Hog BJJ' : fullAddress;
 
-    getOrderNumber().then(function (orderNumber) {
+    (function (orderNumber) {
       if (FORM_MODE === 'formspree' && FORMSPREE_ENDPOINT) {
         data.set('order_number', orderNumber);
         data.set('full_address', addressForMessage);
@@ -409,6 +536,20 @@
           body: data
         }).then(function (res) {
           if (res.ok) {
+            // No payment is taken on-site (a payment link is emailed afterwards), so the
+            // correct standard event here is Lead, not Purchase. If you later take payment
+            // on-site, move a Purchase event to the point payment is confirmed instead.
+            if (typeof fbq === 'function') {
+              fbq('track', 'Lead', {
+                content_name: 'Pure Altai Shilajit 30g',
+                content_ids: ['AGS-ALTAI-30G'],
+                content_type: 'product',
+                num_items: currentQuantity(),
+                value: parseFloat(total.replace('£', '')),
+                currency: 'GBP',
+                order_reference: orderNumber
+              });
+            }
             showConfirmation();
           } else {
             alert('Something went wrong sending your order — please WhatsApp or email it instead.');
@@ -436,7 +577,7 @@
       );
       window.location.href = 'mailto:orders@wildhogbjj.co.uk?subject=' + subject + '&body=' + body;
       showConfirmation();
-    });
+    })(generateOrderNumber());
   });
 })();
 </script>
