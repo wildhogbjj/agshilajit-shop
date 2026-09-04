@@ -292,6 +292,7 @@ footer.site .foot-legal span { margin: 0 6px; }
 .info-block-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text) !important; margin-top: 16px !important; margin-bottom: 6px !important; }
 .info-address .info-block-label:first-of-type { margin-top: 0 !important; }
 .info-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 14px 0 0; }
+.info-pending { max-width: 70ch; margin: 0 auto 28px; text-align: center; color: var(--muted); font-size: 14px; }
 .info-tbc { display: inline-block; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); background: rgba(201, 162, 39, 0.12); border: 1px dashed var(--accent); padding: 0 6px; }
 
 .coming-soon-badge {
