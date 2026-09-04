@@ -87,6 +87,8 @@ header.site .bar {
 .home .hero img { max-width: 80%; margin: 0 auto; }
 .page-ashwagandha .hero img { max-width: 80%; margin: 0 auto; }
 .page-lions-mane .hero img { max-width: 70%; margin: 0 auto; }
+.page-ag-shilajit .hero img,
+.page-altai-shilajit .hero img { max-width: 80%; margin: 0 auto; }
 .hero-note {
   text-align: center; padding: 10px 20px; font-size: 12px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
