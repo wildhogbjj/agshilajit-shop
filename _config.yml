@@ -13,6 +13,7 @@ plugins:
 
 exclude:
   - README.md
+  - CLAUDE.md
   - shilajit-shared-assets.md
   - strategy-gym-first.md
   - strategy-instagram-first.md
