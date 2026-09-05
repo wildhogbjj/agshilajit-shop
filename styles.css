@@ -100,8 +100,8 @@ header.site .bar {
   padding-top: 64px; padding-bottom: 52px;
   display: flex; flex-wrap: wrap; gap: 48px; align-items: center;
 }
-.product-copy { flex: 1 1 460px; min-width: 300px; }
-.product-visual { flex: 1 1 360px; min-width: 280px; background: var(--surface); border: 1px solid var(--line); padding: 16px; }
+.product-copy { flex: 1 1 460px; min-width: min(300px, 100%); }
+.product-visual { flex: 1 1 360px; min-width: min(280px, 100%); background: var(--surface); border: 1px solid var(--line); padding: 16px; }
 .product-visual img { max-height: 460px; width: 100%; object-fit: contain; margin: 0 auto; }
 .product .eyebrow { font-family: 'Oswald', sans-serif; color: var(--accent); font-size: 13px; letter-spacing: 0.16em; margin-bottom: 10px; }
 .eyebrow.center { text-align: center; }
@@ -221,7 +221,7 @@ header.site .bar {
 .story .logo-panel { flex: 0 0 clamp(110px, 24vw, 300px); display: flex; align-items: center; justify-content: center; padding: 10px; }
 .story .logo-panel img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .story .text-panel {
-  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 32px 40px;
   border-left: 1px solid var(--line); border-right: 1px solid var(--line);
 }
@@ -343,7 +343,10 @@ footer.site .foot-legal span { margin: 0 6px; }
        gap: 8px;
      }
      .header-actions .btn-icon, footer.site .foot-actions .btn-icon {
-       padding: 9px;
+       padding: 13px;
+       min-width: 44px;
+       min-height: 44px;
+       justify-content: center;
      }
      .header-actions .btn-text, footer.site .foot-actions .btn-text {
        display: none;
