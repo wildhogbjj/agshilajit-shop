@@ -3,10 +3,17 @@
 Reference file. Both `strategy-gym-first.md` and `strategy-instagram-first.md` pull from this — update here, not in each strategy doc, to avoid drift.
 
 ## Product facts
+> **ON HOLD (2026-09-05):** the certification and origin claims below — *GMP certified*,
+> *Eurofins/third-party tested*, *Made in the UK* — are on hold pending a new certificate
+> and have been withheld from new site copy. Do NOT pull them into fresh marketing,
+> Instagram captions or gym outreach until the replacement cert is in hand. The 81%
+> fulvic acid figure and the lab-cert detail below are from the existing Altai lab report
+> and are unaffected.
+
 - Product: AG Shilajit, 30g resin, £30.00 + P&P (standard £5.95 / tracked £6.95)
 - Lab cert: 81.0% fulvic acid, 8.14% humic acid, authenticity confirmed, heavy metals within safe limits, no pathogens (Russian/Altai regional lab, product name "Pure Shilajit Resin Extract «Siberian Healer»")
 - Magnesium 9,600mg/kg (energy), zinc (male fertility), B12 (rare outside red meat), D3 (fatigue/mood)
-- 100% natural, vegan-friendly, GMP certified, gluten-free
+- 100% natural, vegan-friendly, gluten-free (GMP certified — ON HOLD, see note above)
 - Regional price benchmark: £25–40/30g depending on demographic; £30–35 is the manufacturer's suggested range for a gym demographic like this one
 
 ## Purity copy — paragraph version (site homepage hero)
@@ -14,8 +21,8 @@ Leads with the 81% fulvic acid stat as the core differentiator vs. UK competitor
 
 ## Purity copy — bullet version (alternative, for social/flyers)
 - **81% fulvic acid** — lab-verified, most UK brands don't publish theirs (typically 40–60% where disclosed)
-- Sourced from the Altai & Himalayan ranges, Eurofins/third-party tested
-- No fillers, no additives — 100% natural, vegan-friendly, GMP certified, gluten-free
+- Sourced from the Altai & Himalayan ranges (Eurofins/third-party tested — ON HOLD, see note above)
+- No fillers, no additives — 100% natural, vegan-friendly, gluten-free (GMP certified — ON HOLD)
 - 9,600mg/kg magnesium — the noticeable energy lift
 - Zinc for male fertility support, B12 (rare outside red meat), D3 for fatigue and mood
 - Full certificate of analysis available to download — check it yourself, not just our word
