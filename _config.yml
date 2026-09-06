@@ -22,13 +22,14 @@ collections:
   posts:
     output: true
 
+# One defaults block only. Two `defaults:` keys means YAML keeps the last and
+# silently discards the first - which is what previously killed the sitemap
+# exclusion on the Google verification file.
 defaults:
   - scope:
       path: "google5d2a4b59eecc9899.html"
     values:
       sitemap: false
-
-defaults:
   - scope:
       path: ""
       type: posts
