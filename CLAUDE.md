@@ -41,7 +41,7 @@ Do not leave commits sitting locally. A commit that isn't pushed does not exist 
 - **All asset paths must be root-relative** (`/styles.css`, `/images/…`). Sub-pages use directory-style permalinks (`/ag-shilajit/`), so a relative path resolves against the subdirectory and 404s, leaving the page unstyled.
 - **The root `.html` pages do not use `_layouts/default.html`.** Header and footer markup is duplicated in each. Changing shared chrome means editing all five. Only the `.md` pages (`privacy`, `terms`, `app`) use the layout.
 - **`index.html` has no front matter**, so Jekyll does not process Liquid in it. Don't add `{% … %}` there without also adding front matter.
-- `_config.yml` has **two `defaults:` keys**; YAML keeps only the last, so the first block is silently dead. Still unfixed.
+- `_config.yml` must have **one `defaults:` key only**; a second one is silently dropped by YAML (this once killed the sitemap exclusion on the Google verification file). Fixed 6 Sep 2026 (`7b2742e`) — keep it merged.
 
 ## Content rules
 
